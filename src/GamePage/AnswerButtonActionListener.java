@@ -27,13 +27,14 @@ public class AnswerButtonActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (bar.getPosition() == 15) {
-            System.out.println("You win");
+        if (bar.getPosition() == 14) {
+            losePane.showMessageDialog(null, "You win!\n Your score:");
+            frame.dispose();
+            StartPage startPage = new StartPage();
         } else if (answer && bar.getPosition() < 15) {
             bar.switchProgressToNext();
             page.renderNewPage();
         } else {
-            System.out.println("You lose");
             bar.switchProgressToLose();
             losePane.showMessageDialog(null, "You lose\n Your score:");
             frame.dispose();
