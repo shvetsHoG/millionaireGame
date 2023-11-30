@@ -1,4 +1,4 @@
-package DefaultPage;
+package defaultPage;
 
 import javax.swing.*;
 import java.awt.*;

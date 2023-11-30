@@ -1,4 +1,4 @@
-package GamePage;
+package gamePage;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

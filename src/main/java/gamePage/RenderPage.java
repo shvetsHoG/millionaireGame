@@ -1,19 +1,21 @@
-package GamePage;
+package gamePage;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class RenderPage {
 
+    private int count = 0;
+
     private ProgressBar bar;
 
-    private JPanel answers;
+    private JPanel answers = new JPanel(new GridLayout(2, 2));
 
     private JFrame frame;
 
-    public RenderPage(JFrame frame, JPanel answers, ProgressBar bar) {
+    public RenderPage(JFrame frame /*JPanel answers*/, ProgressBar bar) {
         this.frame = frame;
-        this.answers = answers;
+        //this.answers = answers;
         this.bar = bar;
     }
 
@@ -38,14 +40,12 @@ public class RenderPage {
             booleanAnswers[i] = Boolean.parseBoolean(arrayOfAnswers[i][1]);
         }
 
-        AnswerButtons answerButtons = new AnswerButtons(stringAnswers, booleanAnswers, bar, this.frame, this);
+        AnswerButtons answerButtons = new AnswerButtons(stringAnswers, booleanAnswers, bar, this.frame);
 
         for (int i = 0; i < 4; i++) {
             answerButtons.getAnswerButton(i).setBackground(null);
             answerButtons.getAnswerButton(i).setEnabled(true);
         }
-
-        frame.remove(answers);
 
         JPanel newAnswers = new JPanel(new GridLayout(2, 2));
 
@@ -53,6 +53,8 @@ public class RenderPage {
             newAnswers.add(answerButtons.getAnswerButton(i));
         }
 
+        frame.remove(answers);
+        answers = newAnswers;
         frame.add(newAnswers);
 
         return answerButtons;

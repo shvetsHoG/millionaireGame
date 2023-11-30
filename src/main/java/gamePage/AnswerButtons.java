@@ -1,4 +1,4 @@
-package GamePage;
+package gamePage;
 
 import javax.swing.*;
 
@@ -6,10 +6,10 @@ public class AnswerButtons extends JButton {
 
     private AnswerButton[] box = new AnswerButton[4];
 
-    public AnswerButtons(String[] stringAnswers, Boolean[] booleanAnswers, ProgressBar bar, JFrame frame, RenderPage page) {
+    public AnswerButtons(String[] stringAnswers, Boolean[] booleanAnswers, ProgressBar bar, JFrame frame /*RenderPage page*/) {
         for (int i = 0; i < box.length; i++) {
             box[i] = new AnswerButton(stringAnswers[i], booleanAnswers[i]);
-            box[i].getButton().addActionListener(new AnswerButtonActionListener(box[i].getBooleanValue(), bar, frame, page));
+            box[i].getButton().addActionListener(new AnswerButtonActionListener(box[i].getBooleanValue(), bar, frame));
         }
     }
 

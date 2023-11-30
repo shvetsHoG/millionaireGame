@@ -1,19 +1,20 @@
-package DefaultPage;
+package gamePage;
 
-import GamePage.GamePage;
-
+import defaultPage.StartPage;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StartGameActionListener implements ActionListener {
+public class BackToMenuActionListener implements ActionListener {
+
     private JFrame frame;
-    public StartGameActionListener(JFrame frame) {
+    public BackToMenuActionListener(JFrame frame) {
         this.frame = frame;
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         frame.dispose();
-        GamePage field = new GamePage();
+        StartPage startPage = new StartPage();
     }
 }

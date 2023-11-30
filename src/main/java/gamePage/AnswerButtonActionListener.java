@@ -1,6 +1,6 @@
-package GamePage;
+package gamePage;
 
-import DefaultPage.StartPage;
+import defaultPage.StartPage;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -18,11 +18,11 @@ public class AnswerButtonActionListener implements ActionListener {
 
     private boolean answer;
 
-    public AnswerButtonActionListener(boolean answer, ProgressBar bar, JFrame frame, RenderPage page) {
+    public AnswerButtonActionListener(boolean answer, ProgressBar bar, JFrame frame /*RenderPage page*/) {
         this.answer = answer;
         this.bar = bar;
         this.frame = frame;
-        this.page = page;
+        //this.page = page;
     }
 
     @Override
@@ -33,7 +33,8 @@ public class AnswerButtonActionListener implements ActionListener {
             StartPage startPage = new StartPage();
         } else if (answer && bar.getPosition() < 15) {
             bar.switchProgressToNext();
-            page.renderNewPage();
+            RenderPage newPage = new RenderPage(frame, bar);
+            newPage.renderNewPage();
         } else {
             bar.switchProgressToLose();
             losePane.showMessageDialog(null, "You lose\n Your score:");

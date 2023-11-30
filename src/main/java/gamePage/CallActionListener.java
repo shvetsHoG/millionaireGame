@@ -1,19 +1,19 @@
-package GamePage;
+package gamePage;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AudienceActionListener implements ActionListener{
+public class CallActionListener implements ActionListener {
 
     boolean wasClicked = false;
 
-    public AnswerButtons buttons;
+    AnswerButtons buttons;
 
     private final JButton button;
 
-    public AudienceActionListener(AnswerButtons answerButtons, JButton button) {
+    public CallActionListener(AnswerButtons answerButtons, JButton button) {
         this.buttons = answerButtons;
         this.button = button;
     }

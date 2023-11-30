@@ -1,4 +1,4 @@
-package GamePage;
+package gamePage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +23,7 @@ public class GamePage extends  JFrame{
         backToMenu.addActionListener(new BackToMenuActionListener(this));
         head.add(backToMenu);
 
-        JLabel questionLabel = new JLabel("Question: ");
+        JLabel questionLabel = new JLabel("domain.Question: ");
 
         JLabel progressLabel = new JLabel("Progress: ");
 
@@ -38,9 +38,7 @@ public class GamePage extends  JFrame{
 
         barCells[0].setBackground(Color.orange);
 
-        RenderPage page = new RenderPage(this, answers, bar);
-
-        page.renderNewPage();
+        RenderPage page = new RenderPage(this, bar);
 
         String qstn = "Кто президент Российской Федерации"; //todo доделать базу вопросов
         /*String[][] arrayOfAnswers = new String[4][2];
@@ -67,7 +65,7 @@ public class GamePage extends  JFrame{
             answers.add(answerButtons.getAnswerButton(i));
         }*/
 
-        questionLabel.setText("Question: " + qstn);
+        questionLabel.setText("domain.Question: " + qstn);
 
         JButton helpCall = new JButton("Call a friend");
         helpCall.addActionListener(new CallActionListener(answerButtons, helpCall));
