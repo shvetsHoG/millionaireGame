@@ -1,5 +1,10 @@
 package gamePage;
 
+import gamePage.ActionListeners.AudienceActionListener;
+import gamePage.ActionListeners.BackToMenuActionListener;
+import gamePage.ActionListeners.ConstSummActionListener;
+import gamePage.ActionListeners.HalfActionListener;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -23,13 +28,22 @@ public class GamePage extends  JFrame{
         backToMenu.addActionListener(new BackToMenuActionListener(this));
         head.add(backToMenu);
 
+
+        int intScore = 0;
+        ProgressBar bar = new ProgressBar();
+        Score score = new Score(intScore);
+
+        JButton constSumm = new JButton("Установить несгораемую сумму");
+        constSumm.addActionListener(new ConstSummActionListener(score, bar, constSumm));
+
         JLabel questionLabel = new JLabel("Question: ");
+
+        JLabel scoreLabel = new JLabel("Score: " + intScore);
 
         JLabel progressLabel = new JLabel("Прогресс: ");
 
         progress.add(progressLabel);
 
-        ProgressBar bar = new ProgressBar();
         ProgressCell[] barCells = bar.getProgressBar();
 
         for (int i = 0; i < barCells.length; i++) {
@@ -60,7 +74,7 @@ public class GamePage extends  JFrame{
 
         RenderPage newPage = new RenderPage();
 
-        AnswerButtons answerButtons = new AnswerButtons(newPage, questionLabel, stringAnswers, booleanAnswers, bar, this);
+        AnswerButtons answerButtons = new AnswerButtons(score, scoreLabel, newPage, questionLabel, stringAnswers, booleanAnswers, bar, this);
 
         for (int i = 0; i < 4; i++) {
             answers.add(answerButtons.getAnswerButton(i));
@@ -80,6 +94,8 @@ public class GamePage extends  JFrame{
         head.add(helpCall);
         head.add(helpHalf);
         head.add(helpAudience);
+        head.add(constSumm);
+        head.add(scoreLabel);
         head.add(questionLabel);
 
         setVisible(true);

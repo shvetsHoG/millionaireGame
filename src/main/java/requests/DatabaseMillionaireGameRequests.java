@@ -1,7 +1,7 @@
 package requests;
 
 import database.DatabaseMillionaireGame;
-import domain.Question;
+
 import java.util.Map;
 
 public class DatabaseMillionaireGameRequests {
@@ -20,26 +20,6 @@ public class DatabaseMillionaireGameRequests {
 
     private static final String QUESTION = "question";
     private static final String ID_QUESTION = "idquestion";
-
-    public void createQuestion(String question) {
-        String sql = """
-                insert into millionaire.questions
-                (question)
-                values
-                ('%s')
-                """;
-        db.execute(String.format(sql, question));
-    }
-
-    public void createAnswer(int idQuestion, String answer, boolean isRightAnswer) {
-        String sql = """
-                insert into millionaire.answers
-                (idQuestion, answer, isRightAnswer)
-                values
-                (%d, '%s', %b)
-                """;
-        db.execute(String.format(sql, idQuestion, answer, isRightAnswer));
-    }
 
     public String getQuestionById(int id) {
         String fromDB = db.selectById(
@@ -71,14 +51,4 @@ public class DatabaseMillionaireGameRequests {
 
         return fromDB;
     }
-
-    protected Question convertQuestion(Map<String, String> fromDB) {
-        return new Question(
-                Integer.parseInt(String.valueOf(fromDB.get(ID))),
-                fromDB.get(QUESTION),
-                fromDB.get(ANSWER),
-                Boolean.parseBoolean(fromDB.get(IS_RIGHT_ANSWER))
-        );
-    }
-
 }

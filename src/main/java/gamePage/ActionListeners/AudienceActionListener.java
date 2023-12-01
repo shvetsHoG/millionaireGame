@@ -1,4 +1,6 @@
-package gamePage;
+package gamePage.ActionListeners;
+
+import gamePage.AnswerButtons;
 
 import javax.swing.*;
 import java.awt.*;

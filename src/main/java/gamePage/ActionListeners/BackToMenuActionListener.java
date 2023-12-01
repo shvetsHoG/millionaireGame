@@ -1,4 +1,4 @@
-package gamePage;
+package gamePage.ActionListeners;
 
 import defaultPage.StartPage;
 import javax.swing.*;
