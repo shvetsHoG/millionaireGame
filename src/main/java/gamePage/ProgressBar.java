@@ -10,10 +10,6 @@ public class ProgressBar {
         return position;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
-    }
-
     public ProgressCell[] getProgressBar() {
         for (int i = 0; i < progress.length; i ++) {
             ProgressCell cell = new ProgressCell(i+1);

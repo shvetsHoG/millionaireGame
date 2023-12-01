@@ -6,7 +6,7 @@ import java.awt.*;
 public class GamePage extends  JFrame{
 
     public GamePage() {
-        super("Who wants to be a millionaire");
+        super("Кто хочет стать миллионером");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 600);
 
@@ -19,13 +19,13 @@ public class GamePage extends  JFrame{
         JPanel progress = new JPanel(new FlowLayout());
         add(progress, BorderLayout.SOUTH);
 
-        JButton backToMenu = new JButton("Back to Menu");
+        JButton backToMenu = new JButton("Вернуться в меню");
         backToMenu.addActionListener(new BackToMenuActionListener(this));
         head.add(backToMenu);
 
-        JLabel questionLabel = new JLabel("domain.Question: ");
+        JLabel questionLabel = new JLabel("Question: ");
 
-        JLabel progressLabel = new JLabel("Progress: ");
+        JLabel progressLabel = new JLabel("Прогресс: ");
 
         progress.add(progressLabel);
 
@@ -38,10 +38,9 @@ public class GamePage extends  JFrame{
 
         barCells[0].setBackground(Color.orange);
 
-        RenderPage page = new RenderPage(this, bar);
 
-        String qstn = "Кто президент Российской Федерации"; //todo доделать базу вопросов
-        /*String[][] arrayOfAnswers = new String[4][2];
+        String qstn = "Кто президент Российской Федерации";
+        String[][] arrayOfAnswers = new String[4][2];
         arrayOfAnswers[0][0] = "Владимир Путин";
         arrayOfAnswers[0][1] = "True";
         arrayOfAnswers[1][0] = "Джо Байден";
@@ -57,23 +56,25 @@ public class GamePage extends  JFrame{
         for (int i = 0; i < 4; i++) {
             stringAnswers[i] = arrayOfAnswers[i][0];
             booleanAnswers[i] = Boolean.parseBoolean(arrayOfAnswers[i][1]);
-        }*/
+        }
 
-        AnswerButtons answerButtons = page.renderNewPage();
+        RenderPage newPage = new RenderPage();
 
-        /*for (int i = 0; i < 4; i++) {
+        AnswerButtons answerButtons = new AnswerButtons(newPage, questionLabel, stringAnswers, booleanAnswers, bar, this);
+
+        for (int i = 0; i < 4; i++) {
             answers.add(answerButtons.getAnswerButton(i));
-        }*/
+        }
 
-        questionLabel.setText("domain.Question: " + qstn);
+        questionLabel.setText(qstn);
 
-        JButton helpCall = new JButton("Call a friend");
+        JButton helpCall = new JButton("Звонок другу");
         helpCall.addActionListener(new CallActionListener(answerButtons, helpCall));
 
         JButton helpHalf = new JButton("50/50");
         helpHalf.addActionListener(new HalfActionListener(answerButtons, helpHalf));
 
-        JButton helpAudience = new JButton("Help from the audience");
+        JButton helpAudience = new JButton("Помощь зала");
         helpAudience.addActionListener(new AudienceActionListener(answerButtons, helpAudience));
 
         head.add(helpCall);

@@ -66,24 +66,24 @@ public class DatabaseMillionaireGame {
         execute(sql);
     }
 
-    public String selectQuestionId(String question) {
-        String result = null;
+
+    public String selectById(int id, String table, String row, String column) {
+        String result = "";
         String sql = """
-                select id
-                from millionaire.questions
-                where question = '%s'
+                select %s
+                from millionaire.%s
+                where %s = %d
                 """;
 
-        String select = String.format(sql, question);
+        String select = String.format(sql, column, table, row, id);
 
         try (Connection connection = connect();
              Statement statement = connection.createStatement()) {
             ResultSet set = statement.executeQuery(select);
-            if (set.next()) {
-                result = set.getString("id");
+
+            while (set.next()) {
+                result = set.getString(column);
             }
-
-
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -92,63 +92,29 @@ public class DatabaseMillionaireGame {
     }
 
 
-    public Map<String, String> selectById(int id, String table, String... columnNames) {
+    public Map<String, String> selectById(int id, String table, String row, String... columnNames) {
         Map<String, String> result = new HashMap<>();
         String sql = """
-                select id, %s
+                select %s
                 from millionaire.%s
-                where id = %d
+                where %s = %d
                 """;
         String names = Stream.of(columnNames)
                 .collect(Collectors.joining(", "));
 
-        String select = String.format(sql, names, table, id);
+        String select = String.format(sql, names, table, row, id);
 
         try (Connection connection = connect();
              Statement statement = connection.createStatement()) {
             ResultSet set = statement.executeQuery(select);
 
             while (set.next()) {
-                for (String columnName : columnNames) {
-                    result.put(columnName, set.getString(columnName));
-                }
+                result.put(set.getString(columnNames[0]), set.getString(columnNames[1]));
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
 
-        return result;
-    }
-
-    public List<Map<String, String>> selectAll(String table, String... columnNames) {
-        List<Map<String, String>> result = new ArrayList<>();
-
-        String sql = """
-                select %s
-                from millionaire.%s
-                """;
-
-        String names = String.join(", ", columnNames);
-
-        String select = String.format(sql, names, table);
-
-        try (Connection connection = connect();
-             Statement statement = connection.createStatement();
-        ) {
-            ResultSet set = statement.executeQuery(select);
-
-            while (set.next()) {
-                Map<String, String> fields = new HashMap<>();
-
-                for (String columnName : columnNames) {
-                    fields.put(columnName, set.getString(columnName));
-                }
-
-                result.add(fields);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
         return result;
     }
 

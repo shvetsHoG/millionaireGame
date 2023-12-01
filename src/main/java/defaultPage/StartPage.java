@@ -5,13 +5,13 @@ import java.awt.*;
 
 public class StartPage extends  JFrame{
     public StartPage() {
-        super("Menu");
+        super("Меню");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(400, 200);
 
         JPanel panel = new JPanel(new FlowLayout());
-        JButton startGame = new JButton("Start game!");
-        JButton exitGame = new JButton("Exit");
+        JButton startGame = new JButton("Начать игру!");
+        JButton exitGame = new JButton("Выйти");
 
         startGame.addActionListener(new StartGameActionListener(this));
         exitGame.addActionListener(new ExitActionListener());

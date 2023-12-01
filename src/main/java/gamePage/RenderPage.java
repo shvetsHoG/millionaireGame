@@ -1,62 +1,41 @@
 package gamePage;
 
+import requests.DatabaseMillionaireGameRequests;
+
 import javax.swing.*;
-import java.awt.*;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class RenderPage {
 
-    private int count = 0;
+    private Set<Integer> wasTaken = new HashSet<>();
 
-    private ProgressBar bar;
+    public RenderPage() {
 
-    private JPanel answers = new JPanel(new GridLayout(2, 2));
-
-    private JFrame frame;
-
-    public RenderPage(JFrame frame /*JPanel answers*/, ProgressBar bar) {
-        this.frame = frame;
-        //this.answers = answers;
-        this.bar = bar;
     }
 
-    public AnswerButtons renderNewPage() {
+    public void renderNewQuestions(AnswerButton[] buttons, JLabel questionLabel) {
+        int random = (int) (Math.random() * 17);
+        while (wasTaken.contains(random) || random == 0 || random == 11 || random == 12) {
+            random = (int) (Math.random() * 17);
+        }
+        wasTaken.add(random);
 
-        String qstn = "Кто президент Российской Федерации"; //todo доделать базу вопросов
-        String[][] arrayOfAnswers = new String[4][2];
-        arrayOfAnswers[0][0] = "Владимир Путин";
-        arrayOfAnswers[0][1] = "True";
-        arrayOfAnswers[1][0] = "Джо Байден";
-        arrayOfAnswers[1][1] = "False";
-        arrayOfAnswers[2][0] = "Александр Лукашенко";
-        arrayOfAnswers[2][1] = "False";
-        arrayOfAnswers[3][0] = "Пётр I";
-        arrayOfAnswers[3][1] = "False";
+        DatabaseMillionaireGameRequests databaseMillionaireGameRequests = new DatabaseMillionaireGameRequests();
+        String newQuestion = databaseMillionaireGameRequests.getQuestionById(random);
+        Map<String, String> newAnswers = databaseMillionaireGameRequests.getAnswersByQuestionId(random);
 
-        String[] stringAnswers = new String[4];
-        Boolean[] booleanAnswers = new Boolean[4];
+        questionLabel.setText(newQuestion);
+        Set<String> setKeysAnswers = newAnswers.keySet();
+        String[] keysAnswers = new String[4];
+        keysAnswers = setKeysAnswers.toArray(keysAnswers);
 
         for (int i = 0; i < 4; i++) {
-            stringAnswers[i] = arrayOfAnswers[i][0];
-            booleanAnswers[i] = Boolean.parseBoolean(arrayOfAnswers[i][1]);
+            buttons[i].getButton().setBackground(null);
+            buttons[i].getButton().setEnabled(true);
+            buttons[i].getButton().setText(keysAnswers[i]);
+            buttons[i].setBooleanValue(newAnswers.get(keysAnswers[i]).equals("t"));
         }
-
-        AnswerButtons answerButtons = new AnswerButtons(stringAnswers, booleanAnswers, bar, this.frame);
-
-        for (int i = 0; i < 4; i++) {
-            answerButtons.getAnswerButton(i).setBackground(null);
-            answerButtons.getAnswerButton(i).setEnabled(true);
-        }
-
-        JPanel newAnswers = new JPanel(new GridLayout(2, 2));
-
-        for (int i = 0; i < 4; i++) {
-            newAnswers.add(answerButtons.getAnswerButton(i));
-        }
-
-        frame.remove(answers);
-        answers = newAnswers;
-        frame.add(newAnswers);
-
-        return answerButtons;
     }
 }

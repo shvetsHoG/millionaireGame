@@ -6,8 +6,7 @@ public class AnswerButton extends JButton {
 
     private boolean booleanValue;
 
-    private JButton button = new JButton("");
-
+    private JButton button;
     public AnswerButton(String text, boolean booleanValue) {
         this.button = new JButton(text);
         this.booleanValue = booleanValue;

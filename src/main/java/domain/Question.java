@@ -12,8 +12,6 @@ public class Question {
     public Question(int id, String question, String answer, boolean isRightAnswer) {
         this.id = id;
         this.question = question;
-        this.answer = answer;
-        this.isRightAnswer = isRightAnswer;
     }
 
     public int getId() {
