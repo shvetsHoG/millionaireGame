@@ -13,6 +13,15 @@ import java.util.Set;
 
 public class AnswerButtonActionListener implements ActionListener {
 
+    public static int LAST_GAME_POSITION = 14;
+    public static int LAST_BAR_POSITION = 15;
+
+    public static String WIN_PHRASE = "Вы выиграли!\n Ваш счет: ";
+
+    public static String LOSE_PHRASE = "Вы проиграли!\n Ваш счет: ";
+
+    public static String SCORE_PHRASE = "Score: ";
+
     private AnswerButton[] box;
 
     private final JOptionPane losePane = new JOptionPane();
@@ -24,12 +33,14 @@ public class AnswerButtonActionListener implements ActionListener {
     private JLabel questionLabel;
 
     private AnswerButton button;
-    private Set<Integer> wasTaken;
+
     private RenderPage newPage = new RenderPage();
+
     private JLabel scoreLabel;
+
     private Score constSumm;
 
-    public AnswerButtonActionListener(Score constSumm , JLabel scoreLabel, RenderPage newPage, AnswerButton button, ProgressBar bar, JFrame frame, AnswerButton[] box, JLabel questionLabel) {
+    public AnswerButtonActionListener(Score constSumm, JLabel scoreLabel, RenderPage newPage, AnswerButton button, ProgressBar bar, JFrame frame, AnswerButton[] box, JLabel questionLabel) {
         this.bar = bar;
         this.frame = frame;
         this.box = box;
@@ -42,21 +53,28 @@ public class AnswerButtonActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (bar.getPosition() == 14) {
-            losePane.showMessageDialog(null, "Вы выиграли!\n Ваш счет: " + bar.getScore());
+        if (bar.getPosition() == LAST_GAME_POSITION) {
+            losePane.showMessageDialog(null, WIN_PHRASE + bar.getScore());
             frame.dispose();
             StartPage startPage = new StartPage();
-        } else if (button.getBooleanValue() && bar.getPosition() < 15) {
-            scoreLabel.setText("Score: " + bar.getScore());
+            startPage.setVisible(true);
+        } else if (button.getBooleanValue() && bar.getPosition() < LAST_BAR_POSITION) {
+            scoreLabel.setText(SCORE_PHRASE + bar.getScore());
             bar.switchProgressToNext();
             newPage.renderNewQuestions(box, questionLabel);
         } else {
             bar.switchProgressToLose();
             if (bar.getPosition() == 0) {
-                losePane.showMessageDialog(null, "Вы проиграли\n Ваш счет: " + 0);
+                losePane.showMessageDialog(null, LOSE_PHRASE + 0);
+                frame.dispose();
+                StartPage startPage = new StartPage();
+                startPage.setVisible(true);
             } else {
                 System.out.println(constSumm.getScore());
-                losePane.showMessageDialog(null, "Вы проиграли\n Ваш счет: " + constSumm.getScore());
+                losePane.showMessageDialog(null, LOSE_PHRASE + constSumm.getScore());
+                frame.dispose();
+                StartPage startPage = new StartPage();
+                startPage.setVisible(true);
             }
 
             frame.dispose();

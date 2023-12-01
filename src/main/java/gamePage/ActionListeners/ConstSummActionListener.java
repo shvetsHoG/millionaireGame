@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ConstSummActionListener implements ActionListener {
+
+    public static String CONST_SUMM_PHRASE = "Вы установили несгораемую сумму в размере: ";
     private Score score;
 
     private ProgressBar bar;
@@ -26,9 +28,9 @@ public class ConstSummActionListener implements ActionListener {
         score.setScore(bar.getScore());
         button.setEnabled(false);
         if (bar.getPosition() == 0) {
-            constPane.showMessageDialog(null, "Вы установили несгораемую сумму в размере: " + 0);
+            constPane.showMessageDialog(null, CONST_SUMM_PHRASE + 0);
         } else {
-            constPane.showMessageDialog(null, "Вы установили несгораемую сумму в размере: " + bar.getScore());
+            constPane.showMessageDialog(null, CONST_SUMM_PHRASE + bar.getScore());
         }
     }
 }

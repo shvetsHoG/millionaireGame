@@ -1,4 +1,6 @@
-package gamePage;
+package gamePage.ActionListeners;
+
+import gamePage.AnswerButtons;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,6 +9,7 @@ import java.awt.event.ActionListener;
 
 public class CallActionListener implements ActionListener {
 
+    public static int ANSWERS_COUNT = 4;
     boolean wasClicked = false;
 
     AnswerButtons buttons;
@@ -21,7 +24,7 @@ public class CallActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (!wasClicked) {
-            int random = (int) (Math.random() * 4);
+            int random = (int) (Math.random() * ANSWERS_COUNT);
 
             buttons.getAnswerButton(random).setBackground(Color.GREEN);
             wasClicked = true;

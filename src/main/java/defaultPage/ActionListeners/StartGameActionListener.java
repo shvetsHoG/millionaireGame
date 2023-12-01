@@ -8,9 +8,11 @@ import java.awt.event.ActionListener;
 
 public class StartGameActionListener implements ActionListener {
     private JFrame frame;
+
     public StartGameActionListener(JFrame frame) {
         this.frame = frame;
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         frame.dispose();

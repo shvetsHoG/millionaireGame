@@ -1,4 +1,5 @@
 ### IntelliJ IDEA ###
+.gitignore
 .idea
 Millionaire.iml
 out/

@@ -8,10 +8,11 @@ import java.awt.event.ActionListener;
 
 public class HalfActionListener implements ActionListener {
 
+    public static int ANSWERS_COUNT = 4;
     private final JButton button;
 
     private int getFalseAns(int first) {
-        int falseAns = (int) (Math.random() * 4);
+        int falseAns = (int) (Math.random() * ANSWERS_COUNT);
         if ((falseAns == first) || (falseAns == buttons.getTrueAnswerPosition())) {
             falseAns = getFalseAns(first);
         }

@@ -14,6 +14,10 @@ public class ProgressBar {
         return position;
     }
 
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
     public int getScore() {
         return scoreVars[this.getPosition()];
     }

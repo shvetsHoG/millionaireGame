@@ -6,7 +6,9 @@ import javax.swing.*;
 
 public class AnswerButtons extends JButton {
 
-    private AnswerButton[] box = new AnswerButton[4];
+    public static int ANSWERS_COUNT = 4;
+
+    private AnswerButton[] box = new AnswerButton[ANSWERS_COUNT];
 
     public AnswerButtons(Score constSumm, JLabel scoreLabel, RenderPage newPage, JLabel questionLabel, String[] stringAnswers, Boolean[] booleanAnswers, ProgressBar bar, JFrame frame) {
         for (int i = 0; i < box.length; i++) {
@@ -21,7 +23,7 @@ public class AnswerButtons extends JButton {
 
     public int getTrueAnswerPosition() {
         int trueAns = 0;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < ANSWERS_COUNT; i++) {
             if (box[i].getBooleanValue()) {
                 trueAns = i;
                 break;
