@@ -22,6 +22,14 @@ public class ProgressBar {
         return scoreVars[this.getPosition()];
     }
 
+    public int getConstSummScore() {
+        if (this.getPosition() == 0) {
+            return 0;
+        } else {
+            return scoreVars[this.getPosition() - 1];
+        }
+    }
+
     public ProgressCell[] getProgressBar() {
         for (int i = 0; i < progress.length; i++) {
             ProgressCell cell = new ProgressCell(i + 1);

@@ -9,7 +9,6 @@ import gamePage.Score;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Set;
 
 public class AnswerButtonActionListener implements ActionListener {
 
@@ -70,7 +69,6 @@ public class AnswerButtonActionListener implements ActionListener {
                 StartPage startPage = new StartPage();
                 startPage.setVisible(true);
             } else {
-                System.out.println(constSumm.getScore());
                 losePane.showMessageDialog(null, LOSE_PHRASE + constSumm.getScore());
                 frame.dispose();
                 StartPage startPage = new StartPage();

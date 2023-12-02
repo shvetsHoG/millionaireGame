@@ -25,12 +25,12 @@ public class ConstSummActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        score.setScore(bar.getScore());
+        score.setScore(bar.getConstSummScore());
         button.setEnabled(false);
         if (bar.getPosition() == 0) {
             constPane.showMessageDialog(null, CONST_SUMM_PHRASE + 0);
         } else {
-            constPane.showMessageDialog(null, CONST_SUMM_PHRASE + bar.getScore());
+            constPane.showMessageDialog(null, CONST_SUMM_PHRASE + bar.getConstSummScore());
         }
     }
 }
