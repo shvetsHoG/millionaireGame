@@ -1,5 +1,6 @@
 package gamePage.ActionListeners;
 
+import gamePage.AnswerButton;
 import gamePage.AnswerButtons;
 
 import javax.swing.*;
@@ -43,6 +44,7 @@ public class HalfActionListener implements ActionListener {
             System.out.println(secondRandom);
 
             buttons.getAnswerButton(secondRandom).setEnabled(false);
+
         }
 
         wasClicked = true;

@@ -26,7 +26,7 @@ public class GamePage extends  JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 600);
 
-        JPanel head = new JPanel(new GridLayout(3,4, 5, 5));
+        JPanel head = new JPanel(new GridLayout(3,3, 5, 5));
         add(head, BorderLayout.NORTH);
 
         JPanel answers = new JPanel(new GridLayout(2, 2));

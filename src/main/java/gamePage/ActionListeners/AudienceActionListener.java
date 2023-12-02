@@ -26,6 +26,9 @@ public class AudienceActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (!wasClicked) {
             int random = (int) (Math.random() * ANSWERS_COUNT);
+            while (!buttons.getAnswerButton(random).isEnabled()) {
+                random = (int) (Math.random() * ANSWERS_COUNT);
+            }
 
             buttons.getAnswerButton(random).setBackground(Color.GREEN);
             wasClicked = true;
