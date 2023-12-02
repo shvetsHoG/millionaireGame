@@ -84,14 +84,13 @@ public class GamePage extends  JFrame{
         }
 
         RenderPage newPage = new RenderPage();
-
+        questionLabel.setText(qstn);
         AnswerButtons answerButtons = new AnswerButtons(score, scoreLabel, newPage, questionLabel, stringAnswers, booleanAnswers, bar, this);
-
         for (int i = 0; i < ANSWERS_COUNT; i++) {
             answers.add(answerButtons.getAnswerButton(i));
         }
+        newPage.renderNewQuestions(answerButtons.getButtonsArray(), questionLabel);
 
-        questionLabel.setText(qstn);
 
         JButton helpCall = new JButton(CALL_FRIEND);
         helpCall.addActionListener(new CallActionListener(answerButtons, helpCall));

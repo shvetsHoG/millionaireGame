@@ -11,7 +11,7 @@ public class RenderPage {
 
     public static int ANSWERS_COUNT = 4;
 
-    public static int QUESTION_NUMBER = 17;
+    public static int QUESTION_NUMBER = 18;
 
     public static int FIRST_BROKEN_QUESTION = 11;
 

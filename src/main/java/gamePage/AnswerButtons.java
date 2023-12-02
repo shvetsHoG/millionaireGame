@@ -10,7 +10,8 @@ public class AnswerButtons extends JButton {
 
     private AnswerButton[] box = new AnswerButton[ANSWERS_COUNT];
 
-    public AnswerButtons(Score constSumm, JLabel scoreLabel, RenderPage newPage, JLabel questionLabel, String[] stringAnswers, Boolean[] booleanAnswers, ProgressBar bar, JFrame frame) {
+    public AnswerButtons(Score constSumm, JLabel scoreLabel, RenderPage newPage, JLabel questionLabel,
+                         String[] stringAnswers, Boolean[] booleanAnswers, ProgressBar bar, JFrame frame) {
         for (int i = 0; i < box.length; i++) {
             box[i] = new AnswerButton(stringAnswers[i], booleanAnswers[i]);
             box[i].getButton().addActionListener(new AnswerButtonActionListener(constSumm, scoreLabel, newPage, box[i], bar, frame, box, questionLabel));
@@ -19,6 +20,10 @@ public class AnswerButtons extends JButton {
 
     public JButton getAnswerButton(int position) {
         return box[position].getButton();
+    }
+
+    public AnswerButton[] getButtonsArray() {
+        return box;
     }
 
     public int getTrueAnswerPosition() {
