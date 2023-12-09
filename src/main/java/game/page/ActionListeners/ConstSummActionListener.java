@@ -1,7 +1,7 @@
-package game.Page.ActionListeners;
+package game.page.ActionListeners;
 
-import game.Page.ProgressBar;
-import game.Page.Score;
+import game.page.ProgressBar;
+import game.page.Score;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

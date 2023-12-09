@@ -1,4 +1,4 @@
-package game.Page;
+package game.page;
 
 import java.awt.*;
 

@@ -1,6 +1,6 @@
-package home.Page.ActionListeners;
+package home.page.ActionListeners;
 
-import game.Page.GamePage;
+import game.page.GamePage;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

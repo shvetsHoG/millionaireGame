@@ -1,4 +1,4 @@
-import home.Page.StartPage;
+import home.page.StartPage;
 import requests.DatabaseMillionaireGameRequests;
 
 public class MillionaireGame {

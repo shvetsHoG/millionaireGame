@@ -1,6 +1,6 @@
-package game.Page.ActionListeners;
+package game.page.ActionListeners;
 
-import home.Page.StartPage;
+import home.page.StartPage;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

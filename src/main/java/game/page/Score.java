@@ -1,4 +1,4 @@
-package game.Page;
+package game.page;
 
 public class Score {
     private int score = 0;
