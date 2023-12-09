@@ -66,6 +66,30 @@ public class DatabaseMillionaireGame {
         execute(sql);
     }
 
+    public void createQuestion(String question) {
+        String sql = """
+                insert into millionaire.questions
+                (question)
+                values
+                ('%s')
+                """;
+
+        String select = String.format(sql, question);
+        execute(select);
+    }
+
+    public void insertAnswer(int questionId, String answer, boolean isRightAnswer) {
+        String sql = """
+                insert into millionaire.answers
+                (idquestion, answer, isrightanswer)
+                values
+                (%d, '%s', %b)
+                """;
+
+        String select = String.format(sql, questionId, answer, isRightAnswer);
+        execute(select);
+    }
+
 
     public String selectById(int id, String table, String row, String column) {
         String result = "";

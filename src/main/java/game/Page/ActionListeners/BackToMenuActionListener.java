@@ -1,11 +1,10 @@
-package gamePage.ActionListeners;
+package game.Page.ActionListeners;
 
-import defaultPage.StartPage;
+import home.Page.StartPage;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 public class BackToMenuActionListener implements ActionListener {
 

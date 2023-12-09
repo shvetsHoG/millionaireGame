@@ -36,6 +36,14 @@ public class DatabaseMillionaireGameRequests {
         return fromDB;
     }
 
+    public void insertQuestion(String question) {
+        db.createQuestion(question);
+    }
+
+    public void insertAnswer(int questionId, String answer, boolean isRightAnswer) {
+        db.insertAnswer(questionId, answer, isRightAnswer);
+    }
+
     public Map<String, String> getAnswersByQuestionId(int id) {
         Map<String, String> fromDB = db.selectById(
                 id,

@@ -1,7 +1,6 @@
-package gamePage.ActionListeners;
+package game.Page.ActionListeners;
 
-import gamePage.AnswerButton;
-import gamePage.AnswerButtons;
+import game.Page.AnswerButtons;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

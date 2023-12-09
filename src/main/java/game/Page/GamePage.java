@@ -1,5 +1,6 @@
-package gamePage;
+package game.Page;
 
+import game.Page.ActionListeners.*;
 import gamePage.ActionListeners.*;
 
 import javax.swing.*;

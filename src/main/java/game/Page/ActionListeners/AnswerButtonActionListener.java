@@ -1,10 +1,10 @@
-package gamePage.ActionListeners;
+package game.Page.ActionListeners;
 
-import defaultPage.StartPage;
-import gamePage.AnswerButton;
-import gamePage.ProgressBar;
-import gamePage.RenderPage;
-import gamePage.Score;
+import home.Page.StartPage;
+import game.Page.AnswerButton;
+import game.Page.ProgressBar;
+import game.Page.RenderPage;
+import game.Page.Score;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -1,7 +1,7 @@
-package defaultPage;
+package home.Page;
 
-import defaultPage.ActionListeners.ExitActionListener;
-import defaultPage.ActionListeners.StartGameActionListener;
+import home.Page.ActionListeners.ExitActionListener;
+import home.Page.ActionListeners.StartGameActionListener;
 
 import javax.swing.*;
 import java.awt.*;

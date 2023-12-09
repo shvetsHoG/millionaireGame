@@ -1,4 +1,4 @@
-package gamePage;
+package game.Page;
 
 import javax.swing.*;
 

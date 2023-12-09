@@ -16,11 +16,11 @@ public class DatabaseMillionaireGameRequestsTest {
         Set<String> set = map.keySet();
         String[] keysAnswers = new String[4];
         keysAnswers = set.toArray(keysAnswers);
-        Arrays.stream(keysAnswers).sorted(String::compareTo);
+        Arrays.sort(keysAnswers);
 
-        then(keysAnswers[0]).isEqualTo("Даосизм");
-        then(keysAnswers[1]).isEqualTo("Буддизм");
-        then(keysAnswers[2]).isEqualTo("Иудаизм");
-        then(keysAnswers[3]).isEqualTo("Индуизм");
+        then(keysAnswers[0]).isEqualTo("Буддизм");
+        then(keysAnswers[1]).isEqualTo("Даосизм");
+        then(keysAnswers[2]).isEqualTo("Индуизм");
+        then(keysAnswers[3]).isEqualTo("Иудаизм");
     }
 }
