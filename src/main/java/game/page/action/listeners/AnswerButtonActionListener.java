@@ -55,7 +55,7 @@ public class AnswerButtonActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (bar.getPosition() == LAST_GAME_POSITION) {
+        if (bar.getPosition() == LAST_GAME_POSITION && button.getBooleanValue()) {
             losePane.showMessageDialog(null, WIN_PHRASE + bar.getScore());
             frame.dispose();
             StartPage startPage = new StartPage();
