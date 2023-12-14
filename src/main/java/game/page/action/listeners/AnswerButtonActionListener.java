@@ -1,4 +1,4 @@
-package game.page.ActionListeners;
+package game.page.action.listeners;
 
 import home.page.StartPage;
 import game.page.AnswerButton;
@@ -19,7 +19,7 @@ public class AnswerButtonActionListener implements ActionListener {
 
     public static String LOSE_PHRASE = "Вы проиграли!\n Ваш счет: ";
 
-    public static String SCORE_PHRASE = "Score: ";
+    public static String SCORE_PHRASE = "Счёт: ";
 
     private AnswerButton[] box;
 

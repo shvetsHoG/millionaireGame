@@ -1,6 +1,6 @@
 package game.page;
 
-import game.page.ActionListeners.AnswerButtonActionListener;
+import game.page.action.listeners.AnswerButtonActionListener;
 
 import javax.swing.*;
 import java.awt.*;

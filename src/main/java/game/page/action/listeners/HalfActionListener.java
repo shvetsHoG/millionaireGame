@@ -1,4 +1,4 @@
-package game.page.ActionListeners;
+package game.page.action.listeners;
 
 import game.page.AnswerButtons;
 

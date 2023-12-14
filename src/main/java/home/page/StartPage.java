@@ -1,7 +1,7 @@
 package home.page;
 
-import home.page.ActionListeners.ExitActionListener;
-import home.page.ActionListeners.StartGameActionListener;
+import home.page.action.listeners.ExitActionListener;
+import home.page.action.listeners.StartGameActionListener;
 
 import javax.swing.*;
 import java.awt.*;

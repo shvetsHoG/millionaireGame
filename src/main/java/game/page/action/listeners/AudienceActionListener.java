@@ -1,4 +1,4 @@
-package game.page.ActionListeners;
+package game.page.action.listeners;
 
 import game.page.AnswerButtons;
 
@@ -7,16 +7,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CallActionListener implements ActionListener {
+public class AudienceActionListener implements ActionListener {
 
     public static int ANSWERS_COUNT = 4;
+
     boolean wasClicked = false;
 
-    AnswerButtons buttons;
+    public AnswerButtons buttons;
 
     private final JButton button;
 
-    public CallActionListener(AnswerButtons answerButtons, JButton button) {
+    public AudienceActionListener(AnswerButtons answerButtons, JButton button) {
         this.buttons = answerButtons;
         this.button = button;
     }

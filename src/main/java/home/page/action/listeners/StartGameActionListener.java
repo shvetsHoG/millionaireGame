@@ -1,4 +1,4 @@
-package home.page.ActionListeners;
+package home.page.action.listeners;
 
 import game.page.GamePage;
 

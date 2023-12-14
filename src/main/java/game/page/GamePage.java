@@ -1,6 +1,6 @@
 package game.page;
 
-import game.page.ActionListeners.*;
+import game.page.action.listeners.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -105,11 +105,11 @@ public class GamePage extends  JFrame{
         helpCall.setFocusable(false);
         constSumm.setFocusable(false);
 
-        backToMenu.setBackground(new Color(255, 69, 0));
-        helpAudience.setBackground(new Color(221, 160, 221));
-        helpHalf.setBackground(new Color(221, 160, 221));
-        helpCall.setBackground(new Color(221, 160, 221));
-        constSumm.setBackground(new Color(127, 255, 212));
+        backToMenu.setBackground(new Color(255, 218, 185));
+        helpAudience.setBackground(new Color(176, 224, 230));
+        helpHalf.setBackground(new Color(176, 224, 230));
+        helpCall.setBackground(new Color(176, 224, 230));
+        constSumm.setBackground(new Color(216, 191, 216));
 
         backToMenu.setFont(new Font(FONT_BAHNSCHRIFT, Font.ITALIC, DEFAULT_SIZE));
         helpAudience.setFont(new Font(FONT_BAHNSCHRIFT, Font.ITALIC, DEFAULT_SIZE));
