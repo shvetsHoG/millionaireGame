@@ -3,12 +3,18 @@ package game.page;
 import requests.DatabaseMillionaireGameRequests;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 public class RenderPage {
 
+    private static final int DEFAULT_RED = 240;
+
+    private static final int DEFAULT_GREEN = 248;
+
+    private static final int DEFAULT_BLUE = 255;
     public static int ANSWERS_COUNT = 4;
 
     public static int QUESTION_NUMBER = 21;
@@ -42,7 +48,7 @@ public class RenderPage {
         keysAnswers = setKeysAnswers.toArray(keysAnswers);
 
         for (int i = 0; i < 4; i++) {
-            buttons[i].getButton().setBackground(null);
+            buttons[i].getButton().setBackground(new Color(DEFAULT_RED, DEFAULT_GREEN, DEFAULT_BLUE));
             buttons[i].getButton().setEnabled(true);
             buttons[i].getButton().setText(keysAnswers[i]);
             buttons[i].setBooleanValue(newAnswers.get(keysAnswers[i]).equals(STRING_TRUE));

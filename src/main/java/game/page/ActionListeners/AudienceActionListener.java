@@ -35,5 +35,6 @@ public class AudienceActionListener implements ActionListener {
         }
 
         button.setEnabled(false);
+        button.setBackground(null);
     }
 }

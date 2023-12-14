@@ -33,13 +33,16 @@ public class AnswerButtonActionListener implements ActionListener {
 
     private AnswerButton button;
 
-    private RenderPage newPage = new RenderPage();
+    private RenderPage newPage;
 
     private JLabel scoreLabel;
 
     private Score constSumm;
 
-    public AnswerButtonActionListener(Score constSumm, JLabel scoreLabel, RenderPage newPage, AnswerButton button, ProgressBar bar, JFrame frame, AnswerButton[] box, JLabel questionLabel) {
+    public AnswerButtonActionListener(Score constSumm, JLabel scoreLabel,
+                                      RenderPage newPage, AnswerButton button,
+                                      ProgressBar bar, JFrame frame, AnswerButton[] box,
+                                      JLabel questionLabel) {
         this.bar = bar;
         this.frame = frame;
         this.box = box;

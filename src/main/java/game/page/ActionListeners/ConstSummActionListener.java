@@ -27,6 +27,7 @@ public class ConstSummActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         score.setScore(bar.getConstSummScore());
         button.setEnabled(false);
+        button.setBackground(null);
         if (bar.getPosition() == 0) {
             constPane.showMessageDialog(null, CONST_SUMM_PHRASE + 0);
         } else {

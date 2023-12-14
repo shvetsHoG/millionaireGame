@@ -48,5 +48,6 @@ public class HalfActionListener implements ActionListener {
 
         wasClicked = true;
         button.setEnabled(false);
+        button.setBackground(null);
     }
 }

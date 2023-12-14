@@ -34,5 +34,6 @@ public class CallActionListener implements ActionListener {
         }
 
         button.setEnabled(false);
+        button.setBackground(null);
     }
 }

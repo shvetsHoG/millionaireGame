@@ -1,7 +1,6 @@
 package game.page;
 
 import game.page.ActionListeners.*;
-import gamePage.ActionListeners.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,12 +21,22 @@ public class GamePage extends  JFrame{
 
     public static String TITLE = "Кто хочет стать миллионером";
 
+    public  static String FONT_BAHNSCHRIFT = "Bahnschrift";
+
+    public static int DEFAULT_SIZE = 18;
+
+    public static int BIG_SIZE = 20;
+
+    public static int BUTTON_TEXT_SIZE = 24;
+
     public GamePage() {
         super(TITLE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 600);
+        setSize(1900, 800);
+        setLocationRelativeTo(null);
 
-        JPanel head = new JPanel(new GridLayout(3,3, 5, 5));
+        JPanel head = new JPanel();
+        head.setLayout(new BoxLayout(head, BoxLayout.Y_AXIS));
         add(head, BorderLayout.NORTH);
 
         JPanel answers = new JPanel(new GridLayout(2, 2));
@@ -38,8 +47,6 @@ public class GamePage extends  JFrame{
 
         JButton backToMenu = new JButton(BACK_TO_MENU_PHRASE);
         backToMenu.addActionListener(new BackToMenuActionListener(this));
-        head.add(backToMenu);
-
 
         int intScore = 0;
         ProgressBar bar = new ProgressBar();
@@ -48,11 +55,14 @@ public class GamePage extends  JFrame{
         JButton constSumm = new JButton(CONST_SUMM_PHRASE);
         constSumm.addActionListener(new ConstSummActionListener(score, bar, constSumm));
 
-        JLabel questionLabel = new JLabel("Question: ");
+        JLabel questionLabel = new JLabel("Вопрос: ");
+        questionLabel.setFont(new Font(FONT_BAHNSCHRIFT, Font.BOLD, BIG_SIZE));
 
-        JLabel scoreLabel = new JLabel("Score: " + intScore);
+        JLabel scoreLabel = new JLabel("Счёт: " + intScore);
+        scoreLabel.setFont(new Font(FONT_BAHNSCHRIFT, Font.BOLD,DEFAULT_SIZE));
 
         JLabel progressLabel = new JLabel("Прогресс: ");
+        progressLabel.setFont(new Font(FONT_BAHNSCHRIFT, Font.BOLD,DEFAULT_SIZE));
 
         progress.add(progressLabel);
 
@@ -64,34 +74,18 @@ public class GamePage extends  JFrame{
 
         barCells[0].setBackground(Color.orange);
 
-
-        String qstn = "Кто президент Российской Федерации";
-        String[][] arrayOfAnswers = new String[ANSWERS_COUNT][2];
-        arrayOfAnswers[0][0] = "Владимир Путин";
-        arrayOfAnswers[0][1] = "True";
-        arrayOfAnswers[1][0] = "Джо Байден";
-        arrayOfAnswers[1][1] = "False";
-        arrayOfAnswers[2][0] = "Александр Лукашенко";
-        arrayOfAnswers[2][1] = "False";
-        arrayOfAnswers[3][0] = "Пётр I";
-        arrayOfAnswers[3][1] = "False";
-
-        String[] stringAnswers = new String[ANSWERS_COUNT];
-        Boolean[] booleanAnswers = new Boolean[ANSWERS_COUNT];
-
-        for (int i = 0; i < ANSWERS_COUNT; i++) {
-            stringAnswers[i] = arrayOfAnswers[i][0];
-            booleanAnswers[i] = Boolean.parseBoolean(arrayOfAnswers[i][1]);
-        }
-
         RenderPage newPage = new RenderPage();
-        questionLabel.setText(qstn);
-        AnswerButtons answerButtons = new AnswerButtons(score, scoreLabel, newPage, questionLabel, stringAnswers, booleanAnswers, bar, this);
+        AnswerButtons answerButtons = new AnswerButtons(score, scoreLabel, newPage, questionLabel,
+                bar, this);
         for (int i = 0; i < ANSWERS_COUNT; i++) {
             answers.add(answerButtons.getAnswerButton(i));
         }
+
         newPage.renderNewQuestions(answerButtons.getButtonsArray(), questionLabel);
 
+        answerButtons.setColor(240, 248, 255);
+        answerButtons.setFont(FONT_BAHNSCHRIFT, Font.BOLD, BUTTON_TEXT_SIZE);
+        answerButtons.setFocusable(false);
 
         JButton helpCall = new JButton(CALL_FRIEND);
         helpCall.addActionListener(new CallActionListener(answerButtons, helpCall));
@@ -102,12 +96,37 @@ public class GamePage extends  JFrame{
         JButton helpAudience = new JButton(CALL_AUDIENCE);
         helpAudience.addActionListener(new AudienceActionListener(answerButtons, helpAudience));
 
-        head.add(helpCall);
-        head.add(helpHalf);
-        head.add(helpAudience);
-        head.add(constSumm);
-        head.add(scoreLabel);
-        head.add(questionLabel);
+        JPanel helpButtons = new JPanel(new GridLayout(2, 3, 2, 2));
+        JPanel questionPanel = new JPanel(new FlowLayout());
+
+        backToMenu.setFocusable(false);
+        helpAudience.setFocusable(false);
+        helpHalf.setFocusable(false);
+        helpCall.setFocusable(false);
+        constSumm.setFocusable(false);
+
+        backToMenu.setBackground(new Color(255, 69, 0));
+        helpAudience.setBackground(new Color(221, 160, 221));
+        helpHalf.setBackground(new Color(221, 160, 221));
+        helpCall.setBackground(new Color(221, 160, 221));
+        constSumm.setBackground(new Color(127, 255, 212));
+
+        backToMenu.setFont(new Font(FONT_BAHNSCHRIFT, Font.ITALIC, DEFAULT_SIZE));
+        helpAudience.setFont(new Font(FONT_BAHNSCHRIFT, Font.ITALIC, DEFAULT_SIZE));
+        helpCall.setFont(new Font(FONT_BAHNSCHRIFT, Font.ITALIC, DEFAULT_SIZE));
+        helpHalf.setFont(new Font(FONT_BAHNSCHRIFT, Font.ITALIC, DEFAULT_SIZE));
+        constSumm.setFont(new Font(FONT_BAHNSCHRIFT, Font.ITALIC, DEFAULT_SIZE));
+
+        helpButtons.add(backToMenu);
+        helpButtons.add(helpCall);
+        helpButtons.add(helpHalf);
+        helpButtons.add(helpAudience);
+        helpButtons.add(constSumm);
+        helpButtons.add(scoreLabel);
+        questionPanel.add(questionLabel);
+
+        head.add(helpButtons);
+        head.add(questionPanel);
 
         setVisible(true);
     }
