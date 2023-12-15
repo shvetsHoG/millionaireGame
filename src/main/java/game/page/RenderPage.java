@@ -9,22 +9,14 @@ import java.util.Map;
 import java.util.Set;
 
 public class RenderPage {
-
     private static final int DEFAULT_RED = 240;
-
     private static final int DEFAULT_GREEN = 248;
-
     private static final int DEFAULT_BLUE = 255;
-    public static int ANSWERS_COUNT = 4;
-
-    public static int QUESTION_NUMBER = 21;
-
-    public static int FIRST_BROKEN_QUESTION = 11;
-
-    public static int SECOND_BROKEN_QUESTION = 12;
-
-    public static String STRING_TRUE = "t";
-
+    private static int ANSWERS_COUNT = 4;
+    private static int QUESTION_NUMBER = 21;
+    private static int FIRST_BROKEN_QUESTION = 11;
+    private static int SECOND_BROKEN_QUESTION = 12;
+    private static String STRING_TRUE = "t";
     private Set<Integer> wasTaken = new HashSet<>();
 
     public RenderPage() {

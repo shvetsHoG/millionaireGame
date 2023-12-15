@@ -8,25 +8,15 @@ import java.awt.*;
 public class GamePage extends  JFrame{
 
     public static int ANSWERS_COUNT = 4;
-
     public static String CALL_FRIEND = "Звонок другу";
-
     public static String HALF_ON_HALF = "50/50";
-
     public static String CALL_AUDIENCE = "Помощь зала";
-
     public static String CONST_SUMM_PHRASE = "Установить несгораемую сумму";
-
     public static String BACK_TO_MENU_PHRASE = "Вернуться в меню";
-
     public static String TITLE = "Кто хочет стать миллионером";
-
     public  static String FONT_BAHNSCHRIFT = "Bahnschrift";
-
     public static int DEFAULT_SIZE = 18;
-
     public static int BIG_SIZE = 20;
-
     public static int BUTTON_TEXT_SIZE = 24;
 
     public GamePage() {

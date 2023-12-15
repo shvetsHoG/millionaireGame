@@ -10,6 +10,8 @@ public class HalfActionListener implements ActionListener {
 
     public static int ANSWERS_COUNT = 4;
     private final JButton button;
+    private boolean wasClicked = false;
+    private AnswerButtons buttons;
 
     private int getFalseAns(int first) {
         int falseAns = (int) (Math.random() * ANSWERS_COUNT);
@@ -19,10 +21,6 @@ public class HalfActionListener implements ActionListener {
 
         return falseAns;
     }
-
-    boolean wasClicked = false;
-
-    AnswerButtons buttons;
 
     public HalfActionListener(AnswerButtons answerButtons, JButton button) {
         this.buttons = answerButtons;

@@ -11,12 +11,10 @@ public class ConstSummActionListener implements ActionListener {
 
     public static String CONST_SUMM_PHRASE = "Вы установили несгораемую сумму в размере: ";
     private Score score;
-
     private ProgressBar bar;
-
     private JButton button;
-
     private final JOptionPane constPane = new JOptionPane();
+
     public ConstSummActionListener(Score score, ProgressBar bar, JButton button) {
         this.score = score;
         this.bar = bar;

@@ -2,12 +2,9 @@ package home.page;
 
 import home.page.action.listeners.ExitActionListener;
 import home.page.action.listeners.StartGameActionListener;
-
 import javax.swing.*;
 import java.awt.*;
-
 public class StartPage extends JFrame {
-
     public static String START_GAME = "Начать игру!";
     public static String QUIT = "Выйти";
     public  static String FONT_BAHNSCHRIFT = "Bahnschrift";

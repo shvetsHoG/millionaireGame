@@ -11,9 +11,9 @@ public class AudienceActionListener implements ActionListener {
 
     public static int ANSWERS_COUNT = 4;
 
-    boolean wasClicked = false;
+    private boolean wasClicked = false;
 
-    public AnswerButtons buttons;
+    private AnswerButtons buttons;
 
     private final JButton button;
 

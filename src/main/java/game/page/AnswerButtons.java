@@ -5,10 +5,9 @@ import game.page.action.listeners.AnswerButtonActionListener;
 import javax.swing.*;
 import java.awt.*;
 
-public class AnswerButtons extends JButton {
+public class AnswerButtons {
 
     public static int ANSWERS_COUNT = 4;
-
     private AnswerButton[] box = new AnswerButton[ANSWERS_COUNT];
 
     public AnswerButtons(Score constSumm, JLabel scoreLabel, RenderPage newPage,

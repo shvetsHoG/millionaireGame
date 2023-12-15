@@ -14,29 +14,17 @@ public class AnswerButtonActionListener implements ActionListener {
 
     public static int LAST_GAME_POSITION = 14;
     public static int LAST_BAR_POSITION = 15;
-
     public static String WIN_PHRASE = "Вы выиграли!\n Ваш счет: ";
-
     public static String LOSE_PHRASE = "Вы проиграли!\n Ваш счет: ";
-
     public static String SCORE_PHRASE = "Счёт: ";
-
     private AnswerButton[] box;
-
     private final JOptionPane losePane = new JOptionPane();
-
     private JFrame frame;
-
     private ProgressBar bar;
-
     private JLabel questionLabel;
-
     private AnswerButton button;
-
     private RenderPage newPage;
-
     private JLabel scoreLabel;
-
     private Score constSumm;
 
     public AnswerButtonActionListener(Score constSumm, JLabel scoreLabel,
