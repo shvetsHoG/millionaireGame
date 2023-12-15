@@ -13,7 +13,7 @@ public class RenderPage {
     private static final int DEFAULT_GREEN = 248;
     private static final int DEFAULT_BLUE = 255;
     private static int ANSWERS_COUNT = 4;
-    private static int QUESTION_NUMBER = 21;
+    private static int QUESTION_NUMBER = 36;
     private static int FIRST_BROKEN_QUESTION = 11;
     private static int SECOND_BROKEN_QUESTION = 12;
     private static String STRING_TRUE = "t";
@@ -25,7 +25,7 @@ public class RenderPage {
 
     public void renderNewQuestions(AnswerButton[] buttons, JLabel questionLabel) {
         int random = (int) (Math.random() * QUESTION_NUMBER);
-        while (wasTaken.contains(random) || random == 0 || random == FIRST_BROKEN_QUESTION || random == SECOND_BROKEN_QUESTION) {
+        while (wasTaken.contains(random) || random == 0 || random == FIRST_BROKEN_QUESTION || random == SECOND_BROKEN_QUESTION || random < 20) {
             random = (int) (Math.random() * QUESTION_NUMBER);
         }
         wasTaken.add(random);
